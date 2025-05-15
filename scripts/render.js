@@ -72,7 +72,7 @@ function render(x, y) {
   cachedBoxes[0].style.top = (y) + "px"
   //Dragon tab
   cachedBoxes[3].style.left = (x) + "px"
-  dragonTabHeight = cachedBoxes[3].getBoundingClientRect().height 
+  dragonTabHeight = cachedBoxes[3].getBoundingClientRect().height
   cachedBoxes[3].style.top = (y + 162 + dragonTabHeight/2) + "px"
   if (game.unlocks >= 1) {
     //Fire upgrades tab
@@ -446,7 +446,7 @@ function updatePanKeySpeed() {
   inputVars.keySpeedY = Math.min(inputVars.keySpeedCap, Math.max(-inputVars.keySpeedCap, inputVars.keySpeedY));
 }
 
-//reset all held keys. 
+//reset all held keys.
 function resetPressedKeys() {
   for (let key in inputVars.keysHeld) {
     inputVars.keysHeld[key] = false;
@@ -521,7 +521,7 @@ document.body.addEventListener('mouseover', (e) => {
   if (selectedAchieve === null) {
     showAchievementInfo(null,null) ;
   } else {
-    var identifiers = selectedAchieve.slice(3).split("x"); //takes an achievement id and returns an array - e.g. "ach1x3" will become [1,3]
+    const identifiers = selectedAchieve.slice(3).split("x"); //takes an achievement id and returns an array - e.g. "ach1x3" will become [1,3]
     showAchievementInfo(parseInt(identifiers[0]),parseInt(identifiers[1]));
   }
 })

@@ -1,4 +1,4 @@
-//Sets the info for magic hcallenges based on which one you're hovering over
+//Sets the info for magic challenges based on which one you're hovering over
 function showMagicChallenge(x) {
   switch(x) {
     case 0:
@@ -54,10 +54,10 @@ function enterExitMagicChallenges() {
   }
   else if (game.challengesActive) {
     //A bunch of stuff for setting scores
-    if (game.noOfSelectedChallenges == 1 && game.magicScoreToGet.gt(game.magicScore1)) game.magicScore1 = game.magicScoreToGet
-    else if (game.noOfSelectedChallenges == 2 && game.magicScoreToGet.gt(game.magicScore2)) game.magicScore2 = game.magicScoreToGet
-    else if (game.noOfSelectedChallenges == 3 && game.magicScoreToGet.gt(game.magicScore3)) game.magicScore3 = game.magicScoreToGet
-    else if (game.noOfSelectedChallenges == 4 && game.magicScoreToGet.gt(game.magicScore4)) game.magicScore4 = game.magicScoreToGet
+    if (game.noOfSelectedChallenges === 1 && game.magicScoreToGet.gt(game.magicScore1)) game.magicScore1 = game.magicScoreToGet
+    else if (game.noOfSelectedChallenges === 2 && game.magicScoreToGet.gt(game.magicScore2)) game.magicScore2 = game.magicScoreToGet
+    else if (game.noOfSelectedChallenges === 3 && game.magicScoreToGet.gt(game.magicScore3)) game.magicScore3 = game.magicScoreToGet
+    else if (game.noOfSelectedChallenges === 4 && game.magicScoreToGet.gt(game.magicScore4)) game.magicScore4 = game.magicScoreToGet
     document.getElementById("magicScore1").textContent = format(game.magicScore1, 0)
     document.getElementById("magicScore2").textContent = format(game.magicScore2, 0)
     document.getElementById("magicScore3").textContent = format(game.magicScore3, 0)
@@ -66,7 +66,7 @@ function enterExitMagicChallenges() {
     document.getElementById("magicMult2").textContent = format(game.magicScore2.add(1), 0)
     document.getElementById("magicMult3").textContent = format(game.magicScore3.add(1), 0)
     document.getElementById("magicMult4").textContent = format(game.magicScore4.add(1), 0)
-    
+
     if (game.inHell) {game.magifolds = new Decimal(1)}
     else {game.magifolds = game.magicScore1.add(1).mul(game.magicScore2.add(1)).mul(game.magicScore3.add(1)).mul(game.magicScore4.add(1))}
     document.getElementById("magifolds").textContent = format(game.magifolds, 0)

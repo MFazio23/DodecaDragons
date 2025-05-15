@@ -15,7 +15,7 @@
   <title>DodecaDragons</title>
   <link rel="icon" type="image/x-icon" href="img/iconGoldCoins.png">
   <link rel="stylesheet" href="98.css" />
-  <link href="style.css" rel="stylesheet" type="text/css" /> 
+  <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body onclick="updateSmall()">
@@ -40,19 +40,19 @@
       <button id="unlockBloodButton" onclick="unlockBlood()">&#8202;&#8202;UNLOCK BLOOD<br>Costs e5.00e14 gold</button>
       <button id="moreDarkMagicUpgradesButton" style="background-color: #74a; height: 34px; display: none" onclick="moreDarkMagicUpgrades()">Unlock more dark magic upgrades<br>Costs e6.66e16 gold</button>
       <button id="unlockVoidMagicUpgradesButton" style="background-color: #222; color: white; height: 58px; display: none" onclick="unlockVoidMagicUpgrades()">&#8202;&#8202;Unlock <a style="color: #dbf; text-shadow: 1px 1px #648">Void Magic Upgrades</a><br>You are mastering control of your magic powers.<br>Costs e1.00e100 gold and 100,000,000 holy fire</button>
-			<button id="unlockPlanetsButton" style="background-color: black; background-image: url('img/spaceBack.png'); color: #b8f; height: 34px; width: 200px; display: none" onclick="unlockPlanets()">&#8202;&#8202;Unlock <b>Planets</b><br>Costs e1.00e400 gold</button>
-			<button id="omniverseWarning" style="background-color: black; color: #b0f; text-shadow: 0 1px #00f; height: 46px; display: none">&#8202;&#8202;Something unseeable looms over you. A powerful presence has taken<br>&#8202;&#8202;an interest in your actions. Perhaps it may show itself if you acquire more gold.</button>
-			<button id="unlockEssencesButton" style="background-color: white; color: black; height: 34px; width: 250px; display: none" onclick="unlockEssences()">&#8202;&#8202;Unlock the <b>Light and Dark Essences</b><br>&#8202;&#8202;Costs ee500,000 gold</button>
-			<button id="unlockDeathEssenceButton" style="background-color: #f88; color: black; height: 34px; width: 250px; display: none" onclick="unlockDeathEssence()">Unlock <b>Death Essence</b><br>Costs ee1,500,000 gold</button>
-			<button id="unlockNuclearPastaButton" style="background-color: #fd8; color: #630; height: 34px; display: none" onclick="unlockNuclearPasta()">&#8202;&#8202;Unlock <b>Nuclear Pasta</b><br>Costs ee3,500,000 gold</button>
-			<button id="unlockFinalityEssenceButton" style="background-color: #b8f; color: black; height: 34px; width: 250px; display: none" onclick="unlockFinalityEssence()">&#8202;&#8202;Unlock <b>Finality Essence</b><br>Costs ee150,000,000 gold</button>
-			<button id="unlockFinalityCubesButton" style="background-color: black; color: #f0f; text-shadow: 1px 1px #4300a4; height: 34px; width: 250px; display: none" onclick="unlockFinalityCubes()">Unlock <b>Finality Cubes</b><br>&#8202;&#8202;Costs ee7.50e9 gold</button>
-			<button id="bigFinishButton" style="background-color: black; color: white; height: 34px; width: 250px; display: none" onclick="bigFinishCheck()">&#8202;&#8202;Become the omniverse.<br>Costs ee1.00e12 gold</button>
+      <button id="unlockPlanetsButton" style="background-color: black; background-image: url('img/spaceBack.png'); color: #b8f; height: 34px; width: 200px; display: none" onclick="unlockPlanets()">&#8202;&#8202;Unlock <b>Planets</b><br>Costs e1.00e400 gold</button>
+      <button id="omniverseWarning" style="background-color: black; color: #b0f; text-shadow: 0 1px #00f; height: 46px; display: none">&#8202;&#8202;Something unseeable looms over you. A powerful presence has taken<br>&#8202;&#8202;an interest in your actions. Perhaps it may show itself if you acquire more gold.</button>
+      <button id="unlockEssencesButton" style="background-color: white; color: black; height: 34px; width: 250px; display: none" onclick="unlockEssences()">&#8202;&#8202;Unlock the <b>Light and Dark Essences</b><br>&#8202;&#8202;Costs ee500,000 gold</button>
+      <button id="unlockDeathEssenceButton" style="background-color: #f88; color: black; height: 34px; width: 250px; display: none" onclick="unlockDeathEssence()">Unlock <b>Death Essence</b><br>Costs ee1,500,000 gold</button>
+      <button id="unlockNuclearPastaButton" style="background-color: #fd8; color: #630; height: 34px; display: none" onclick="unlockNuclearPasta()">&#8202;&#8202;Unlock <b>Nuclear Pasta</b><br>Costs ee3,500,000 gold</button>
+      <button id="unlockFinalityEssenceButton" style="background-color: #b8f; color: black; height: 34px; width: 250px; display: none" onclick="unlockFinalityEssence()">&#8202;&#8202;Unlock <b>Finality Essence</b><br>Costs ee150,000,000 gold</button>
+      <button id="unlockFinalityCubesButton" style="background-color: black; color: #f0f; text-shadow: 1px 1px #4300a4; height: 34px; width: 250px; display: none" onclick="unlockFinalityCubes()">Unlock <b>Finality Cubes</b><br>&#8202;&#8202;Costs ee7.50e9 gold</button>
+      <button id="bigFinishButton" style="background-color: black; color: white; height: 34px; width: 250px; display: none" onclick="bigFinishCheck()">&#8202;&#8202;Become the omniverse.<br>Costs ee1.00e12 gold</button>
     </div>
   </div>
 
   <!--Settings-->
-  <div class="window box"
+  <div id="settings-box" class="window box"
     style="width: 150px; top: 55px; left: 5px; transform: none; padding-bottom: 8px; z-index: 1; display: none;">
     <div class="title-bar" style="background-image: linear-gradient(90deg,grey,#b5b5b5);">
       <div class="title-bar-text">Settings</div>
@@ -86,7 +86,7 @@
   </div>
 
   <!--Resources tab-->
-  <div class="window box" style="width: 200px; top: 55px; left: 5px; transform: none; padding-bottom: 8px; z-index: 1">
+  <div id="resources-box" class="window box" style="width: 200px; top: 55px; left: 5px; transform: none; padding-bottom: 8px; z-index: 1">
     <div class="title-bar">
       <div class="title-bar-text">Resources</div>
       <div class="title-bar-controls">
@@ -116,17 +116,17 @@
       <p class="resourceRow" onclick="posSet(-1095,-1145)" style="display: none"><img src="img/iconSigil8.png" class="resourceIcon"></img>Yellow sigils: <a class="resourceText">0</a></p>
       <p class="resourceRow" onclick="posSet(-830,250)" style="display: none"><img src="img/iconPolyhedronSmall1.png" class="resourceIcon"></img>Holy tetrahedrons: <a class="resourceText">0</a></p>
       <p class="resourceRow" onclick="posSet(-1295,250)" style="display: none"><img src="img/iconPolyhedronSmall2.png" class="resourceIcon"></img>Holy octahedrons: <a class="resourceText">0</a></p>
-      <p class="resourceRow" onclick="posSet(1245,-365)" style="display: none"><img src="img/iconHolyFire.png" class="resourceIcon"></img>Holy fire: <a class="resourceText">0</a></p>
       <p class="resourceRow" onclick="posSet(-1760,250)" style="display: none"><img src="img/iconPolyhedronSmall3.png" class="resourceIcon"></img>Holy dodecahedrons: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(515,650)" style="display: none"><img src="img/iconPlanet.png" class="resourceIcon"></img>Planets: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(1345,-850)" style="display: none"><img src="img/iconPlague.png" class="resourceIcon"></img>Cosmic plague: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(-1145,-100)" style="display: none"><img src="img/iconOganessonCoins.png" class="resourceIcon"></img>Oganesson: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(-1440,-100)" style="display: none"><img src="img/iconLightEssence.png" class="resourceIcon"></img>Light essence: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(-1755,-100)" style="display: none"><img src="img/iconDarkEssence.png" class="resourceIcon"></img>Dark essence: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(-1437,-615)" style="display: none"><img src="img/iconDeathEssence.png" class="resourceIcon"></img>Death essence: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(980,650)" style="display: none"><img src="img/iconNuclearPasta.png" class="resourceIcon"></img>Nuclear pasta: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(-1755,-615)" style="display: none"><img src="img/iconFinalityEssence.png" class="resourceIcon"></img>Finality essence: <a class="resourceText">0</a></p>
-			<p class="resourceRow" onclick="posSet(-1541,-1105)" style="display: none"><img src="img/iconFinalityCube.png" class="resourceIcon"></img>Finality cubes: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(1245,-365)" style="display: none"><img src="img/iconHolyFire.png" class="resourceIcon"></img>Holy fire: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(515,650)" style="display: none"><img src="img/iconPlanet.png" class="resourceIcon"></img>Planets: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(1345,-850)" style="display: none"><img src="img/iconPlague.png" class="resourceIcon"></img>Cosmic plague: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(-1145,-100)" style="display: none"><img src="img/iconOganessonCoins.png" class="resourceIcon"></img>Oganesson: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(-1440,-100)" style="display: none"><img src="img/iconLightEssence.png" class="resourceIcon"></img>Light essence: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(-1755,-100)" style="display: none"><img src="img/iconDarkEssence.png" class="resourceIcon"></img>Dark essence: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(-1437,-615)" style="display: none"><img src="img/iconDeathEssence.png" class="resourceIcon"></img>Death essence: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(-1755,-615)" style="display: none"><img src="img/iconFinalityEssence.png" class="resourceIcon"></img>Finality essence: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(980,650)" style="display: none"><img src="img/iconNuclearPasta.png" class="resourceIcon"></img>Nuclear pasta: <a class="resourceText">0</a></p>
+      <p class="resourceRow" onclick="posSet(-1541,-1105)" style="display: none"><img src="img/iconFinalityCube.png" class="resourceIcon"></img>Finality cubes: <a class="resourceText">0</a></p>
     </div>
   </div>
 
@@ -138,8 +138,7 @@
     <div class="window-body">
       <center>
         <p id="dragonStageCounter" style="position: absolute; margin: 2px; font-size: 22px; color: #777"></p>
-        <p id="dragonTitle" class="titleText" style="margin-top: 0;"><a style="font-size: 14px">You have a</a><br>Young
-          dragon</p>
+        <p id="dragonTitle" class="titleText" style="margin-top: 0;"><a style="font-size: 14px">You have a</a><br>Young dragon</p>
         <img id="dragonImg" draggable="false" src="img/iconDragon1.png" style="width: 128px; margin: 4px; pointer-events: auto" onclick="dragonClicky(event)"><br>
         <input id="dragonNameBox" style="width: 200px; background-color: #cbc0b8; text-align: center; font-weight: bold" placeholder="Set your dragon's name here!" onchange="changeDragonName()"></input>
       </center>
@@ -159,9 +158,9 @@
       <button class="upgradeDragonButton" style="height: 46px; display: none; background-color: #444; color: #bbe" onclick="upgradeDragon(5)">Enhance your dragon with incomprehensible machinery<br>&#8202;&#8202;Multiplies blue fire gain by 100<br>Costs e1.50e11 gold</button>
       <button class="upgradeDragonButton" style="height: 46px; display: none; background-color: #ffd; color: #08f" onclick="upgradeDragon(6)">Ascend your dragon with the power of the heavens themselves!<br>Multiplies blue fire gain by 1.00e50<br>&#8202;&#8202;Costs e1.00e55 gold</button>
       <button class="upgradeDragonButton" style="height: 46px; display: none; background-color: #222; color: #b8f" onclick="upgradeDragon(7)">Fuse your dragon with versions of itself from other dimensions<br>Multiplies holy fire gain by 1.00e10<br>Costs e1.00e200 gold</button>
-			<button class="upgradeDragonButton" style="height: 46px; display: none; background-color: #040; color: #8f8" onclick="upgradeDragon(8)">Infuse your dragon with the cosmic plague and gain corrupted power<br>Multiplies cosmic plague gain by 100<br>&#8202;&#8202;Costs ee35,000 gold</button>
-			<button class="upgradeDragonButton" style="height: 46px; display: none; background-color: white; color: black" onclick="upgradeDragon(9)">Infuse your dragon with the essences of light, dark and death<br>Multiplies light/dark essence gain by 1,000<br>&#8202;&#8202;Costs ee1,750,000 gold</button>
-			<button class="upgradeDragonButton" style="height: 46px; display: none; background-color: #80f; color: #9ff; text-shadow: 1px 1px #44f" onclick="upgradeDragon(10)">Infuse your dragon with the essence of finality<br>Multiplies death and finality essence gain by 100<br>&#8202;&#8202;Costs ee1.50e9 gold</button>
+      <button class="upgradeDragonButton" style="height: 46px; display: none; background-color: #040; color: #8f8" onclick="upgradeDragon(8)">Infuse your dragon with the cosmic plague and gain corrupted power<br>Multiplies cosmic plague gain by 100<br>&#8202;&#8202;Costs ee35,000 gold</button>
+      <button class="upgradeDragonButton" style="height: 46px; display: none; background-color: white; color: black" onclick="upgradeDragon(9)">Infuse your dragon with the essences of light, dark and death<br>Multiplies light/dark essence gain by 1,000<br>&#8202;&#8202;Costs ee1,750,000 gold</button>
+      <button class="upgradeDragonButton" style="height: 46px; display: none; background-color: #80f; color: #9ff; text-shadow: 1px 1px #44f" onclick="upgradeDragon(10)">Infuse your dragon with the essence of finality<br>Multiplies death and finality essence gain by 100<br>&#8202;&#8202;Costs ee1.50e9 gold</button>
       <div id="dragonAffectionStuff" style="display: none">
         <hr>
         <p>Your dragon is seeking affection!<br>(You cannot do anything with your dragon while inside challenges)</p><br>
@@ -553,17 +552,16 @@
     </div>
   </div>
 
-  <!--The horror-->
-  <!--Someday I will move this! Unfotunately the tabs have to stay in the order I added them-->
-  <div class="window box" style="width: 200px; top: 55px; left: 5px; transform: none; z-index: 1; display: none">
-    <div class="title-bar" style="background: linear-gradient(90deg,#800000,#ad5a5a)">
-      <div class="title-bar-text">LIVE HORROR CAM</div>
+  <!--Milestones-->
+  <div id="milestones-box" class="window box" style="min-width: 250px; top: 55px; left: 5px; transform: none; z-index: 1; display: none">
+    <div class="title-bar" style="background: linear-gradient(90deg,#444,#4bb)">
+      <div class="title-bar-text">Milestones</div>
       <div class="title-bar-controls">
         <button aria-label="Close" style="background-image: url('img/close.svg'); background-repeat: no-repeat; background-position: 3px 3px" onclick="changeTab(0)"></button>
       </div>
     </div>
 		<div class="window-body">
-			<img src="img/theHorror.gif" style="width: 100%; margin: 0">
+			This will eventually contain milestones
 		</div>
 	</div>
 
@@ -592,9 +590,9 @@
   </div>
 
   <!--Achievements tab-->
-  <!--Someday I will move this! Unfotunately the tabs have to stay in the order I added them-->
-  <div class="window box" style="min-width: 250px; top: 55px; left: 5px; transform: none; z-index: 1; display: none">
-    <div class="title-bar">
+  <!--Someday I will move this! Unfortunately the tabs have to stay in the order I added them-->
+  <div id="achievements-box" class="window box" style="min-width: 250px; top: 55px; left: 5px; transform: none; z-index: 1; display: none">
+    <div class="title-bar" style="background: linear-gradient(90deg,#444,#4bb)">
       <div class="title-bar-text">Achievements</div>
       <div class="title-bar-controls">
         <button aria-label="Close" style="background-image: url('img/close.svg'); background-repeat: no-repeat; background-position: 3px 3px" onclick="changeTab(0)"></button>
@@ -605,12 +603,12 @@
         <p style="font-size: 22px; line-height: 22px; margin: 4px">Achievement name</p>
         <p>Acquire X of resource Y</p>
       </div>
-      <div id="achievementsDiv" style="margin-top: 101px; margin-left: 4px; margin-bottom: 4px"></div>
+      <div id="achievementsDiv" style="margin-top: 111px; margin-left: 4px; margin-bottom: 4px"></div>
     </div>
   </div>
 
   <!--Achievement pop-up box-->
-  <!--Someday I will move this! Unfotunately the tabs have to stay in the order I added them-->
+  <!--Someday I will move this! Unfortunately the tabs have to stay in the order I added them-->
   <!--<div class="window box" id="achievementPopup" style="width: 350px; bottom: 30px; left: -380px; transform: none; z-index: 2; transition: left 800ms ease-in-out">-->
   <div class="window box" id="achievementPopup">
     <div class="title-bar" style="background: linear-gradient(90deg,#444,#4bb)">
@@ -671,7 +669,7 @@
       <button id="knowledgeAutoMaxAllButton" onclick="knowledgeAutoMaxAll()">Auto max all: On</button>
     </div>
   </div>
-  
+
   <!--Sigil automation tab-->
   <div class="window box" id="tab_sigilAutomation" style="width: 350px; height: 300px; background-color: #666; display: none;">
     <div class="title-bar" style="background:linear-gradient(90deg,#444,#b06)">
@@ -863,7 +861,7 @@
   </div>
 
     <!--Info tab-->
-  <div class="window box" style="width: 300px; top: 55px; left: 5px; transform: none; padding-bottom: 8px; z-index: 1; display: none">
+  <div id="info-credits-box" class="window box" style="width: 300px; top: 55px; left: 5px; transform: none; padding-bottom: 8px; z-index: 1; display: none">
     <div class="title-bar">
       <div class="title-bar-text">Info/credits</div>
       <div class="title-bar-controls">
@@ -1081,7 +1079,7 @@
       <button class="holyDodecahedronUpgrade" onclick="buyHolyDodecahedronUpgrade(6)" style="border: 3px solid; border-color: #ff9; bottom: 410px; left: 153px;"><b>Dodecahedrons<br>&#8202;&#8202;multiply holy fire gain</b><br>Costs 150,000 dodecas</button>
     </div>
   </div>
-	
+
 	<!--Planet tab-->
   <div class="window box" id="tab_planets" style="width: 450px; height: 450px; background-image: url('img/spaceBack.png'); display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,black,#64b)">
@@ -1101,7 +1099,7 @@
 			<button style="background-color: #aae; height: 34px; text-align: left" onclick="gainSupercluster()">Gain a supercluster<br>Requires <span id="superclusterCost">25</span> planets</button><br>
     </div>
   </div>
-	
+
 	<!--Omniversal hypergod tab-->
   <div class="window box" id="tab_omniversalHypergods" style="width: 400px; height: 400px; background-image: url('img/omniverseBack.png'); display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,black,#44d)">
@@ -1114,7 +1112,7 @@
 			<button id="hypergodButton" style="background-image: linear-gradient(45deg, #aae, #bae); height: 34px; font-weight: bold" onclick="defeatHypergod()">Defeat this hypergod and claim a section of the omniverse<br>&#8202;&#8202;Requires <span id="hypergodDefeatCost">ee20,000</span> gold</button></center>
     </div>
   </div>
-	
+
 	<!--Cosmic plague tab tab-->
   <div class="window box" id="tab_cosmicPlague" style="width: 450px; height: 540px; background-color: #040; display: none">
     <div class="title-bar" style="background: linear-gradient(90deg, #208, #280)">
@@ -1140,7 +1138,7 @@
       <button id="plagueMaxAllButton" onclick="plagueMaxAll()">Max all</button>
     </div>
   </div>
-	
+
 	<!--Alchemy tab IV-->
   <div class="window box" id="tab_oganesson" style="width: 260px; height: 500px; display: none;">
     <div class="title-bar">
@@ -1157,7 +1155,7 @@
 			<button class="oganessonUpgrade" style="height: 46px" onclick="buyOganessonUpgrade(7)">Increase essence gain (<a class="oganessonUpgradesBought">0</a>/10)<br>Currently x<a id="oganessonUpgrade7Effect">1.00</a><br>Costs 5,000,000 oganesson</button><br>
     </div>
   </div>
-	
+
 	<!--Light essence tab-->
   <div class="window box" id="tab_lightEssence" style="width: 300px; height: 500px; background-color: white; display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,black,black)">
@@ -1172,7 +1170,7 @@
 			<button id="lightEssenceMaxAllButton" style="background-color: white" onclick="lightEssenceMaxAll()">Max all</button>
     </div>
   </div>
-	
+
 	<!--Dark essence tab-->
   <div class="window box" id="tab_darkEssence" style="width: 300px; height: 500px; background-color: black; display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,white,white)">
@@ -1187,7 +1185,7 @@
 			<button id="darkEssenceMaxAllButton" style="background-color: black; color: white" onclick="darkEssenceMaxAll()">Max all</button>
     </div>
   </div>
-	
+
 	<!--Death essence tab-->
   <div class="window box" id="tab_deathEssence" style="width: 305px; height: 500px; background-color: #f88; color: black; display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,black,black)">
@@ -1204,7 +1202,7 @@
 			<button id="deathEssenceMaxAllButton" style="background-color: #f88" onclick="deathEssenceMaxAll()">Max all</button>
     </div>
   </div>
-	
+
 	<!--Nuclear pasta tab-->
   <div class="window box" id="tab_nuclearPasta" style="width: 450px; height: 450px; background-color: #fd8; color: #630; display: none;">
     <div class="title-bar" style="background: linear-gradient(90deg,#960,#db0)">
@@ -1224,12 +1222,12 @@
 			<button class="nuclearPastaUpgrade" style="height: 34px; text-align: left" onclick="buyNuclearPastaUpgrade(4)">Lasagna and antispaghetti positive effects are permanent, with no more negative effects<br>Costs ee750,000,000 gold</button><br>
     </div>
   </div>
-	
+
 	<!--Nuclear pasta info window-->
 	<div class="window" id="nuclearPastaInfoWindow">
 		<p id="nuclearPastaInfoText">Test text</p>
 	</div>
-	
+
 	<!--Finality essence tab-->
   <div class="window box" id="tab_finalityEssence" style="width: 300px; height: 500px; background-color: #b8f; display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,black,black)">
@@ -1245,7 +1243,7 @@
 			<button id="finalityEssenceMaxAllButton" style="background-color: #b8f" onclick="finalityEssenceMaxAll()">Max all</button>
     </div>
   </div>
-	
+
 	<!--Finality cubes tab-->
   <div class="window box" id="tab_finalityCubes" style="width: 512px; height: 450px; background-color: black; background-image: url('img/spaceBack2.png'); display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,#408,#f0f)">
@@ -1266,11 +1264,22 @@
 
 
 
+  <!--Automation-->
+  <!--This will be implemented later on-->
+  <div id="automation-box" class="window box" style="width: 200px; top: 55px; left: 5px; transform: none; z-index: 1; display: none">
+    <div class="title-bar" style="background: linear-gradient(90deg,#444,#b4b)">
+      <div class="title-bar-text">Automation</div>
+      <div class="title-bar-controls">
+        <button aria-label="Close" style="background-image: url('img/close.svg'); background-repeat: no-repeat; background-position: 3px 3px" onclick="changeTab(0)"></button>
+      </div>
+    </div>
+    <div class="window-body">
+      This will eventually contain automation
+    </div>
+  </div>
 
-
-  
   <!-- Warning box for when save is not detected-->
-  <div id="autosaveWarning" class="window" style="background: #ddc0c0; display: none"> 
+  <div id="autosaveWarning" class="window" style="background: #ddc0c0; display: none">
     <div class="title-bar" style="background: linear-gradient(90deg,#833,#fbb)">
       <div class="title-bar-text">WARNING</div>
     </div>
@@ -1281,14 +1290,14 @@
   </div>
 
   <p id="alerts" style="color: white; position: absolute; top: 0; right: 0; margin: 4px; text-align: right; font-size: 24px"></p>
-	
+
 	<div id="finalDiv">
 		<p id="finalText">DodecaDragons</p>
 		<p style="font-size: 33px; margin: 0; color: #8f8">Game completed</p><br>
 		<p style="font-size: 22px; margin: 0">Your dragon has become the omniverse itself.<br>Your total time was <span id="finalTime">0:00:00</span>.</p><br>
 		<button onclick="hardReset()">&#8202;&#8202;Reset game</button>
 	</div>
-  
+
   <button class="tabButton" style="position: absolute; top: 5px; left: 5px; min-width: 76px; min-height: 20px; margin: 0; z-index: 1;"
   onclick="changeTab(1)">Resources</button>
   <button class="tabButton" style="position: absolute; top: 5px; left: 85px; min-height: 20px; margin: 0; z-index: 1;"
@@ -1297,8 +1306,11 @@
   onclick="changeTab(3)">Achievements</button>
   <button class="tabButton" style="position: absolute; top: 30px; left: 5px; min-height: 20px; margin: 0; z-index: 1"
   onclick="changeTab(4)">Info/credits</button>
-  <button class="tabButton" id="horrorTabButton" style="position: absolute; top: 30px; left: 85px; min-height: 20px; margin: 0; z-index: 1; display: none"
-  onclick="changeTab(5)">Peep the horror</button>
+  <button class="tabButton" style="position: absolute; top: 30px; left: 85px; min-height: 20px; margin: 0; z-index: 1"
+  onclick="changeTab(5)">Milestones</button>
+  <button id="automationTabButton" class="tabButton" style="position: absolute; top: 30px; left: 164px; min-height: 20px; margin: 0; z-index: 1"
+  onclick="changeTab(6)">Automation</button>
+
 
   <img src="img/homeIcon.png" id="home" class="clickButton" onclick="posSet(0,0)">
   <div id="navArrows">
@@ -1316,7 +1328,7 @@
 
   <!--List o' scripts-->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="scripts/break_eternity.js"></script>
+  <script src="scripts/break_eternity.min.js"></script>
   <script src="scripts/Mousetrap.js"></script>
   <script src="scripts/constants.js"></script>
   <script src="scripts/script.js"></script>
@@ -1330,11 +1342,13 @@
   <script src="scripts/knowledge.js"></script>
   <script src="scripts/blood.js"></script>
   <script src="scripts/holyPolyhedrons.js"></script>
-	<script src="scripts/planets.js"></script>
-	<script src="scripts/plague.js"></script>
-	<script src="scripts/essence.js"></script>
-	<script src="scripts/nuclearPasta.js"></script>
+  <script src="scripts/planets.js"></script>
+  <script src="scripts/plague.js"></script>
+  <script src="scripts/essence.js"></script>
+  <script src="scripts/nuclearPasta.js"></script>
   <script src="scripts/achievements.js"></script>
+  <script src="scripts/milestones.js"></script>
+  <script src="scripts/automation.js"></script>
   <script src="scripts/hotkeys.js"></script>
   <script src="scripts/render.js"></script>
   <script>load(); if (!isDevVersion) setAutoSave()</script>

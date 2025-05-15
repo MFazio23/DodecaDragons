@@ -674,7 +674,7 @@ img {
   position: absolute;
   z-index: 11;
   width: calc(100% - 20px);
-  height: 95px;
+  height: 105px;
   margin: 0;
   padding-top: 2px;
   background-color: #666;
@@ -690,11 +690,11 @@ img {
 #achievementPopup {
   position: fixed;
   top:initial;
-  width: 350px; 
-  bottom: 30px; 
-  left: -380px; 
-  transform: none; 
-  z-index: 2; 
+  width: 350px;
+  bottom: 30px;
+  left: -380px;
+  transform: none;
+  z-index: 2;
   transition: left 800ms ease-in-out;
 }
 

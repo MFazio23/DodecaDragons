@@ -10,7 +10,7 @@ window.mobileCheck = function() {
   */
   (function(a){if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4))) check = true;})(navigator.userAgent||navigator.vendor||window.opera);
 
-  
+
   return check;
 };
 if (mobileCheck()) {
@@ -38,7 +38,7 @@ if (isDevVersion) {
     //FPS stuff
   window.times = []
   window.fps = 0
-  
+
   function refreshLoop() {
     window.requestAnimationFrame(() => {
       const now = Date.now()
@@ -87,14 +87,15 @@ function format(ex, acc=2, max=9) {
 }
 
 
-var autosaveStarted = false;
+let autosaveStarted = false;
 //Sets all variables to their base values
 function reset() {
 	game = {
+    gameId: '',
     unlockedAchievements: [0,0,0,0,0,0,0,0,0,0,0],
 
     unlocks: 0,
-    lastMajorChangeVersion: 3, //tracks what version was last played so adjustments can be made in the loading code when necessary. 
+    lastMajorChangeVersion: 3, //tracks what version was last played so adjustments can be made in the loading code when necessary.
     lastUpdate: Date.now(),
     lastSave: 0,
     lastSigilReset: Date.now(),
@@ -113,12 +114,12 @@ function reset() {
     sigilResetterTime: new Decimal(1),
     sigilResetterCycle: false, //specifies whether the resetter should cycle to next colour on each reset
     sigilResetterCycleMode: 0, //0 is all unlocked colours, 1 is R-O-Y only
-    
+
     gold: new Decimal(0),
     goldPerSecond: new Decimal(0),
     miners: new Decimal(0),
     minerCost: new Decimal(20),
-    
+
     fire: new Decimal(0),
     firePerSecond: new Decimal(1),
     //I still need to condense these into an array *cries*
@@ -137,7 +138,7 @@ function reset() {
     fireUpgrade6Bought: new Decimal(0),
     fireUpgrade6Cost: new Decimal(2e7),
     dragonStage: 1,
-    
+
     platinumConvertCooldown: 0,
     platinumToGet: new Decimal(0),
     bestPlatinumToGet: new Decimal(0),
@@ -173,7 +174,7 @@ function reset() {
     dragonTimeCooldown: 0,
     dragonFood: new Decimal(0),
     dragonFeedCost: new Decimal(100000000),
-    
+
     dragonTimeEffect: new Decimal(1),
     dragonPets: 0,
 
@@ -327,16 +328,16 @@ function reset() {
     holyDodecahedronsToGet: new Decimal(0),
     holyDodecahedronUpgradesUnlocked: [true],
     holyDodecahedronUpgradesBought: [],
-		
+
 		planets: new Decimal(0),
 		planetEffect: new Decimal(1),
 		planetCosts: [new Decimal(1e30), new Decimal(1e15), new Decimal(1e5)],
 		planetsFormed: [new Decimal(0), new Decimal(0), new Decimal(0)],
 		superclusters: new Decimal(0),
 		superclusterCost: new Decimal(25),
-		
+
 		hypergodsDefeated: 0,
-		
+
 		cosmicPlague: new Decimal(0),
 		cosmicPlaguePerSecond: new Decimal(0),
 		spores: new Decimal(0),
@@ -344,11 +345,11 @@ function reset() {
 		plagueUpgradeCosts: [new Decimal(25), new Decimal(100), new Decimal(100000), new Decimal(1e6), new Decimal(1e13)],
 		plagueUpgradesBought: [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
 		plagueAutoMaxAll: true,
-		
+
 		oganesson: new Decimal(0),
 		oganessonPerSecond: new Decimal(0),
 		oganessonUpgradesBought: [0, 0, 0, 0, 0, 0, 0],
-		
+
 		lightEssence: new Decimal(0),
 		lightEssencePerSecond: new Decimal(0),
 		lightEssenceUpgradeCosts: [new Decimal(100), new Decimal(600), new Decimal(3000)],
@@ -365,7 +366,7 @@ function reset() {
 		finalityEssencePerSecond: new Decimal(0),
 		finalityEssenceUpgradeCosts: [new Decimal(1000), new Decimal(4000), new Decimal(1e15), new Decimal(1e20)],
 		finalityEssenceUpgradesBought: [new Decimal(0), new Decimal(0), new Decimal(0), new Decimal(0)],
-		
+
 		nuclearPasta: new Decimal(0),
 		nuclearPastaCost: new Decimal("ee3.5e6"),
 		nuclearPastaState: 1,
@@ -373,7 +374,7 @@ function reset() {
 		nuclearPastaCooldown: 30,
 		nuclearPastaExtended: false,
 		nuclearPastaUpgradesBought: [false, false, false, false],
-		
+
 		finalityCubes: new Decimal(0),
 		finalityCubeCost: new Decimal("ee7.5e9"),
 		finalityCubeEffect: new Decimal(1),
@@ -420,7 +421,7 @@ function reset() {
 	document.getElementById("planetBuyMaxButton").style.display = "none"
 	document.getElementById("plagueMaxAllButton").style.display = "none"
 	document.getElementById("plagueAutoMaxAllButton").style.display = "none"
-  
+
   document.getElementById("unlockAlchemyButton").style.display = "none"
   document.getElementById("unlockMagicButton").style.display = "none"
   document.getElementById("moreMagicUpgradesButton").style.display = "none"
@@ -444,6 +445,7 @@ reset()
 //If the user confirms the hard reset, resets all variables, saves and refreshes the page
 function hardReset() {
   if (confirm("Are you sure you want to reset? You will lose everything!")) {
+    logGameEnd();
     reset()
     save()
     location.reload()
@@ -492,7 +494,7 @@ function exportGame() {
 function importGame() {
   //loadgame = JSON.parse(atob(prompt("Input your save here:")))
   let loadgame = JSON.parse(atob(document.getElementById("exportField").value));
-  if (loadgame && loadgame != null && loadgame != "") {
+  if (loadgame) {
     reset()
     loadGame(loadgame)
     save()
@@ -508,6 +510,10 @@ function load() {
   //loadgame.kkkgl();
 	if (loadgame != null) {loadGame(loadgame)}
   else {document.getElementById("loadingScreenCover").style.display = "none"}
+  if (!game.gameId) {
+    game.gameId = crypto.randomUUID();
+    logGameStart();
+  }
 }
 
 //load()
@@ -520,13 +526,14 @@ function loadGame(loadgame) {
   }
   loadgame.lastMajorChangeVersion = game.lastMajorChangeVersion; //set loadgame version to current version so save has proper version going forward
 
-  
+
   //Sets each variable in 'game' to the equivalent variable in 'loadgame' (the saved file)
   let loadKeys = Object.keys(loadgame);
   for (i=0; i<loadKeys.length; i++) {
     if (loadgame[loadKeys[i]] != "undefined") {
       let thisKey = loadKeys[i];
-      if (typeof loadgame[thisKey] == "string" && thisKey != "dragonName") {game[thisKey] = new Decimal(loadgame[thisKey])}
+      const skippedKeys = ['dragonName', 'gameId'];
+      if (typeof loadgame[thisKey] == "string" && !skippedKeys.includes(thisKey)) {game[thisKey] = new Decimal(loadgame[thisKey])}
       else if (Array.isArray(loadgame[thisKey]) && game[loadKeys[i]]) { // If the value is an array and the corresponding key exists in the game object
         for (j = 0; j < loadgame[thisKey].length; j++) { // Iterate through the array elements
           //if (typeof loadgame[thisKey][j] == "string" && !isNaN(parseFloat(loadgame[thisKey][j]))) { // If the array element is a string that can be converted to a Decimal, do so
@@ -546,7 +553,7 @@ function loadGame(loadgame) {
   game.lastUpdate = Date.now(); // set last update to current time, will want to tweak this if offline progress is ever added!
 
   if (shouldCheckVersion) fixSaveVersion(oldVersion);
-  
+
   //All of these change what's visible/available based on game progress
   document.getElementById("minerCost").textContent = format(game.minerCost, 0)
   if (game.miners.gte(1)) document.getElementsByClassName("resourceRow")[1].style.display = "block"
@@ -562,11 +569,17 @@ function loadGame(loadgame) {
   if (!game.holyTetrahedronUpgradesBought[11] && game.unlocks >= 26) game.unlocks = 25
 
   //achievement stuff
-  for (let i=0;i<achievementNames.length;i++) {game.unlockedAchievements[i] = game.unlockedAchievements[i] || 0} //ensure unlocked achievement array doesn't break when new categories are added
+  for (let i=0;i<achievementNames.length;i++) {
+    //ensure unlocked achievement array doesn't break when new categories are added
+    game.unlockedAchievements[i] = game.unlockedAchievements[i] || 0
+  }
   showAchievements(game.unlocks) //load appropriate achievements in to the DOM
   processAchievementRewards()
   game.achievementFlashActive = false; // make sure flash isn't still set to true through reload
-  game.currentTab = 1; // reset current tab to 1 to ensure achievement flash properly triggers
+  //game.currentTab = 1; // reset current tab to 1 to ensure achievement flash properly triggers
+  //TODO: back to tab 1, remove display
+  toggleCornerButtonBoxVisibility(5);
+
   if (game.dragonName !== undefined) document.getElementById("dragonNameBox").value = game.dragonName
   if (game.fireAutoMaxAll) {document.getElementById("fireAutoMaxAllButton").textContent = "Auto max all: On"} //Toggle the fire auto max all button
   else {document.getElementById("fireAutoMaxAllButton").textContent = "Auto max all: Off"}
@@ -748,11 +761,9 @@ function loadGame(loadgame) {
     }
   }
   //Cyan sigil stuff
-  if (game.unlocks < 10) document.getElementById("horrorTabButton").style.display = "none"
   if (game.unlocks >= 10) {
     if (game.confirmations[1] == false) {document.getElementsByClassName("confirmationToggle")[1].style.border = "2px solid red"}
     else {document.getElementsByClassName("confirmationToggle")[1].style.border = "2px solid #0f0"}
-    document.getElementById("horrorTabButton").style.display = "block"
     document.getElementsByClassName("box")[11].style.display = "block"
     document.getElementsByClassName("resourceRow")[7].style.display = "block"
     document.getElementsByClassName("confirmationToggle")[1].style.display = "inline-block"
@@ -1208,7 +1219,7 @@ function loadGame(loadgame) {
     document.getElementById("dragonImg").src = "img/iconDragon6.png"
     document.getElementById("dragonTitle").innerHTML = "<a style='font-size: 14px'>You have a</a><br>Machine dragon"
     document.getElementById("dragonInfo").innerHTML = "Despite being filled with immense eldrich technology spiralling inwards forever, a million billion tiny cogs quietly ticking away, your dragon feels like merely a cog itself. Perhaps... it is still imperfect."
-    
+
     if (game.unlocks >= 18) {document.getElementById("unlockBloodButton").style.display = "none"}
     else {document.getElementById("unlockBloodButton").style.display = "block"}
   }
@@ -1256,14 +1267,14 @@ function loadGame(loadgame) {
   if (document.getElementById("sigilResetterType").value === '') {document.getElementById("sigilResetterType").value = 'Cyan'; game.sigilResetterType = 0}
   document.getElementById("sigilResetterMode").value = sigilResetterModesFull[game.sigilResetterMode];
 
-  
+
   document.getElementById("hotkeySpan").innerHTML = generateHotkeyText();
   populateTabPositions()
   render(renderVars.posX, renderVars.posY)
   document.getElementById("loadingScreenCover").style.display = "none"
 }
 
-function fixSaveVersion(oldVersion) { 
+function fixSaveVersion(oldVersion) {
   if (oldVersion === undefined) { //v 0.5.0, addressing sigil upgrade changes for achievement update
     if (game.cyanSigilUpgrade1Bought) game.cyanSigilUpgradesBought = [game.cyanSigilUpgrade1Bought, game.cyanSigilUpgrade2Bought, game.cyanSigilUpgrade3Bought, game.cyanSigilUpgrade6Bought];
     if (game.blueSigilUpgrade1Bought)game.blueSigilUpgradesBought = [game.blueSigilUpgrade1Bought, game.blueSigilUpgrade2Bought, game.blueSigilUpgrade3Bought, game.blueSigilUpgrade6Bought];
@@ -1298,7 +1309,7 @@ timeResumeSound.volume = 0.2
 //Small update (occurs every 150ms)
 function updateSmall() {
   if (timeStopped) return;
-  
+
   //Gold/second formula and multipliers
   let diff = Date.now() - game.lastUpdate;
   diff = diff/1000;
@@ -1309,7 +1320,7 @@ function updateSmall() {
   if (game.inHell) alertString += "<a style='color:#0ff'>!</a> You are in hell<br>"
   if (game.sigilResetterActive) alertString += "<a style='color:#0ff'>!</a> Sigil resetter is enabled<br>"
   document.getElementById("alerts").innerHTML = alertString
-  
+
   game.goldPerSecond = game.miners.mul(game.fire.div(10).add(1).log10().mul(2).add(1))
   if (game.unlocks >= 2) {
     if (game.darkMagicUpgradesBought[5]) {game.goldPerSecond = game.goldPerSecond.mul(new Decimal(5).pow(game.fireUpgrade2Bought.pow(0.8)))}
@@ -1350,7 +1361,7 @@ function updateSmall() {
     if (game.holyOctahedronUpgradesBought[1]) game.goldPerSecond = game.goldPerSecond.mul(1e250)
     if (game.tomeUpgradesBought[10]) game.goldPerSecond = game.goldPerSecond.pow(game.blood.add(1).log10().add(1))
   }
-    
+
   //Gold/click formula and multipliers
   if (game.magicUpgradesBought[8]) {game.goldPerClick = game.fireUpgrade3Bought.pow(12).mul(4).add(1)}
   else {game.goldPerClick = game.fireUpgrade3Bought.pow(2.6).mul(4).add(1)}
@@ -1411,13 +1422,13 @@ function updateSmall() {
   }
   document.getElementById("fire").textContent = format(game.fire, 0)
   document.getElementById("firePerSecond").textContent = format(game.firePerSecond, 0)
-  
+
   //Fire gold multiplier formula and multipliers
   if (game.darkMagicUpgradesBought[5]) {game.fireGoldMultiplier = game.fire.div(10).add(1).log10().mul(2).add(1).mul(new Decimal(5).pow(game.fireUpgrade2Bought.pow(0.8)))}
   else if (game.magicUpgradesBought[8]) {game.fireGoldMultiplier = game.fire.div(10).add(1).log10().mul(2).add(1).mul(new Decimal(1.6).pow(game.fireUpgrade2Bought.pow(0.8)))}
   else {game.fireGoldMultiplier = game.fire.div(10).add(1).log10().mul(2).add(1).mul(new Decimal(1.25).pow(game.fireUpgrade2Bought.pow(0.8)))}
   document.getElementById("fireGoldMultiplier").textContent = format(game.fireGoldMultiplier, 2)
-  
+
   document.getElementsByClassName("resourceText")[0].textContent = format(game.gold, 0)
   document.getElementsByClassName("resourceText")[1].textContent = format(game.miners, 0)
   if (game.unlocks >= 1) document.getElementsByClassName("resourceText")[2].textContent = format(game.fire, 0)
@@ -2138,7 +2149,7 @@ function updateSmall() {
 			default:
 				document.getElementById("nuclearPastaEffect").innerHTML = ""
 				break;
-		} 
+		}
 	}
 	if (game.unlocks >= 36) {
 		game.finalityEssencePerSecond = game.deathEssence.add(game.lightEssence).pow(0.3).div(1e16)
@@ -2184,7 +2195,7 @@ function updateSmall() {
   //if (game.unlocks >= 13) game.violetSigilPower = game.violetSigilPower.add(game.violetSigilPowerPerSecond.mul(diff))
   //if (game.unlocks >= 14) game.pinkSigilPower = game.pinkSigilPower.add(game.pinkSigilPowerPerSecond.mul(diff))
   //if (game.unlockedAchievements[5] > 3) game.uranium = game.uranium.add(game.uraniumToGet.mul(diff))
-  //if (game.unlockedAchievements[0] > 8 && game.minerAutoBuyMax) buyMaxMiners()  
+  //if (game.unlockedAchievements[0] > 8 && game.minerAutoBuyMax) buyMaxMiners()
 }
 updateSmall()
 setInterval(updateSmall, 150)
@@ -2194,14 +2205,14 @@ let timeSinceLastUpdate = Date.now()
 function updateLarge() {
   if (timeStopped) return;
 	timeDivider = Math.max(1000 / (Date.now() - timeSinceLastUpdate), 0.0001)
-  
+
   //Adds to the user's gold
   if (game.unlocks < 35 || game.nuclearPastaUpgradesBought[3] || (game.nuclearPastaState != 2 && game.nuclearPastaState != 5)) game.gold = game.gold.add(game.goldPerSecond.div(timeDivider))
   //Adds to the user's fire
   if (game.unlocks >= 1) game.fire = game.fire.add(game.firePerSecond.div(timeDivider))
   //Auto maxes all if the upgrade is bought
   if (game.unlockedAchievements[6] > 2 && game.fireAutoMaxAll) fireMaxAll()
-  
+
   //Handles the platinum convert button cooldown
   if (game.platinumConvertCooldown > 0) {
     game.platinumConvertCooldown -= 0.5
@@ -2210,7 +2221,7 @@ function updateLarge() {
   }
   if (game.platinumUpgradesBought[4] == 1) game.platinum = game.platinum.add(game.platinumToGet.div(timeDivider))
   if (game.unlocks >= 3) game.platinum = game.platinum.add(Decimal.max(game.bestPlatinumToGet.div(20), 2))
-  
+
   //Handles the uranium convert button cooldown
   if (game.uraniumConvertCooldown > 0) {
     game.uraniumConvertCooldown -= 0.5
@@ -2218,7 +2229,7 @@ function updateLarge() {
     if (game.uraniumConvertCooldown == 0) document.getElementById("uraniumConvertButton").disabled = false
   }
   if (game.unlocks >= 7) game.uranium = game.uranium.add(Decimal.max(game.bestUraniumToGet.div(20), 1))
-  
+
   //Handles the dragon time spending cooldown
   if (game.dragonTimeCooldown > 0) {
     game.dragonTimeCooldown -= 0.5
@@ -2239,7 +2250,7 @@ function updateLarge() {
     if (game.plutoniumConvertCooldown == 0) document.getElementById("plutoniumConvertButton").disabled = false
   }
   if (game.unlocks >= 20) game.plutonium = game.plutonium.add(Decimal.max(game.bestPlutoniumToGet.div(20), 0))
-  
+
   if (game.unlockedAchievements[3] > 7) {game.magic = game.magic.add(game.magicToGet.div(timeDivider))}
   else if (game.unlockedAchievements[3] > 5) {game.magic = game.magic.add(game.magicToGet.div(100))}
   magicHardcap = new Decimal("e5000000")
@@ -2308,23 +2319,23 @@ function updateLarge() {
   if (game.unlockedAchievements[14] > 1) buyMaxTomes()
 	if (game.unlockedAchievements[21] > 7 && game.holyFireAutoMaxAll) holyFireMaxAll()
 	if (game.unlockedAchievements[24] > 5 && game.plagueAutoMaxAll) plagueMaxAll()
-		
+
 	if (game.unlockedAchievements[24] > 2) planetBuyMax()
-		
+
 	if (game.unlocks == 29 && game.gold.gte("e1e5000")) {
 		document.getElementById("omniverseWarning").style.display = "none"
 		document.getElementsByClassName("box")[38].style.display = "block"
 		addUnlock() //sets unlock to 30
 	}
-	
+
 	if (game.unlockedAchievements[24] > 0) {
 		game.holyTetrahedrons = game.holyTetrahedrons.add(game.holyTetrahedronsToGet.div(timeDivider))
 		game.holyOctahedrons = game.holyOctahedrons.add(game.holyOctahedronsToGet.div(timeDivider))
 		game.holyDodecahedrons = game.holyDodecahedrons.add(game.holyDodecahedronsToGet.div(timeDivider))
 	}
-	
+
 	if (game.unlockedAchievements[24] > 9) gainMaxPasta()
-	
+
 	if (game.unlocks >= 35) {
 		game.nuclearPastaCooldown -= 0.5
 		if (game.nuclearPastaCooldown == 0) {
@@ -2335,7 +2346,7 @@ function updateLarge() {
 		}
 		document.getElementById("nuclearPastaCooldown").innerHTML = (game.nuclearPastaCooldown < 9.5 ? "&#8202;&#8202;" : "") + format(game.nuclearPastaCooldown, 0)
 	}
-  
+
   updateSmall()
   checkAchievements()
   if (game.sigilResetterActive) sigilAutoResetter();
@@ -2345,7 +2356,7 @@ function updateLarge() {
     maxOrangeSigilUpgrades()
     maxYellowSigilUpgrades()
   }
-  
+
   if (!isDevVersion) {
     let lastConfirmedSave = parseInt(localStorage.getItem("dodecaLastSaved"));
     if (Date.now() - lastConfirmedSave > 60000) {
@@ -2360,58 +2371,17 @@ function updateLarge() {
 setInterval(updateLarge, 500)
 
 function changeTab(x) {
-  switch(x) {
-    case 0:
-      document.getElementsByClassName("box")[27].style.display = "none"
-      document.getElementsByClassName("box")[17].style.display = "none"
-      document.getElementsByClassName("box")[15].style.display = "none"
-      document.getElementsByClassName("box")[2].style.display = "none"
-      document.getElementsByClassName("box")[1].style.display = "none"
-      break
-    case 1:
-      document.getElementsByClassName("box")[27].style.display = "none"
-      document.getElementsByClassName("box")[17].style.display = "none"
-      document.getElementsByClassName("box")[15].style.display = "none"
-      document.getElementsByClassName("box")[2].style.display = "block"
-      document.getElementsByClassName("box")[1].style.display = "none"
-      break
-    case 2:
-      document.getElementsByClassName("box")[27].style.display = "none"
-      document.getElementsByClassName("box")[17].style.display = "none"
-      document.getElementsByClassName("box")[15].style.display = "none"
-      document.getElementsByClassName("box")[2].style.display = "none"
-      document.getElementsByClassName("box")[1].style.display = "block"
-      break
-    case 3:
-      document.getElementsByClassName("box")[27].style.display = "none"
-      document.getElementsByClassName("box")[17].style.display = "block"
-      document.getElementsByClassName("box")[15].style.display = "none"
-      document.getElementsByClassName("box")[2].style.display = "none"
-      document.getElementsByClassName("box")[1].style.display = "none"
-      break
-    case 4:
-      document.getElementsByClassName("box")[27].style.display = "block"
-      document.getElementsByClassName("box")[17].style.display = "none"
-      document.getElementsByClassName("box")[15].style.display = "none"
-      document.getElementsByClassName("box")[2].style.display = "none"
-      document.getElementsByClassName("box")[1].style.display = "none"
-      break
-    case 5:
-      document.getElementsByClassName("box")[27].style.display = "none"
-      document.getElementsByClassName("box")[17].style.display = "none"
-      document.getElementsByClassName("box")[15].style.display = "block"
-      document.getElementsByClassName("box")[2].style.display = "none"
-      document.getElementsByClassName("box")[1].style.display = "none"
-      break
-    default:
-      document.getElementsByClassName("box")[27].style.display = "none"
-      document.getElementsByClassName("box")[17].style.display = "none"
-      document.getElementsByClassName("box")[15].style.display = "none"
-      document.getElementsByClassName("box")[2].style.display = "block"
-      document.getElementsByClassName("box")[1].style.display = "none"
-      break
-  }
+  toggleCornerButtonBoxVisibility(x);
   game.currentTab = x;
+}
+
+function toggleCornerButtonBoxVisibility(buttonNum) {
+  document.getElementById('resources-box').style.display = buttonNum === 1 ? 'block' : 'none';
+  document.getElementById('settings-box').style.display = buttonNum === 2 ? 'block' : 'none';
+  document.getElementById('achievements-box').style.display = buttonNum === 3 ? 'block' : 'none';
+  document.getElementById('info-credits-box').style.display = buttonNum === 4 ? 'block' : 'none';
+  document.getElementById('milestones-box').style.display = buttonNum === 5 ? 'block' : 'none';
+  document.getElementById('automation-box').style.display = buttonNum === 6 ? 'block' : 'none';
 }
 
 function toggleConfirmations(x) {
@@ -2461,7 +2431,9 @@ function changeBackgroundPattern() {
 }
 
 function addUnlock(x = 1) {
+  console.log("Add unlock", x);
   game.unlocks += x;
+  logMilestone(game.unlocks);
   let newAch = false;
   for (let i=0; i<achievementDisplayUnlocks[game.unlocks].length; i++) {
     if (achievementDisplayUnlocks[game.unlocks][i] > achievementDisplayUnlocks[game.unlocks - x][i]) {newAch = true; break;}
@@ -2469,7 +2441,7 @@ function addUnlock(x = 1) {
   if (newAch) {
     showAchievements(game.unlocks);
     achievementTabFlash();
-  }  
+  }
   document.getElementById("hotkeySpan").innerHTML = generateHotkeyText();
   panToNewUnlock();
 }
@@ -2502,7 +2474,7 @@ function timePlayedUp() {
 setInterval(timePlayedUp, 100)
 
 function getSaveErrorCode() {
-  //error code will indicate 3 things: 
+  //error code will indicate 3 things:
   let _validSave = 0; //first value is whether a valid save exists in the storage.
   let _timeMatches = 0; //second value is whether the time on this save matches the tracked time.
   let _intervalStarted = 0; //Third value is whether autosave interval ever seemingly initialized.
@@ -2544,11 +2516,7 @@ function bigFinish() {
 		document.getElementById("home").style.display = "none"
 		for (i=0;i<5;i++) document.getElementsByClassName("tabButton")[i].style.display = "none"
 		"none"
-		document.getElementsByClassName("box")[1].style.display = "none" 
-		document.getElementsByClassName("box")[2].style.display = "none" 
-		document.getElementsByClassName("box")[15].style.display = "none" 
-		document.getElementsByClassName("box")[17].style.display = "none" 
-		document.getElementsByClassName("box")[27].style.display = "none"
+		toggleCornerButtonBoxVisibility(0);
     document.getElementById("dragonImg").src = "img/iconDragon12.png"
     document.getElementById("dragonTitle").innerHTML = "<a style='font-size: 14px'>You have a</a><br>DodecaDragon"
     document.getElementById("dragonInfo").innerHTML = ""
@@ -2581,17 +2549,18 @@ function bigFinish() {
 }
 
 let dragonClicked = false
-function dragonClicky(event) {
-  if (event.ctrlKey) {
+async function dragonClicky(event) {
+  console.log("Dragon clicked.");
+  if (event.ctrlKey || event.altKey) {
     document.getElementById("dragonImg").src = "img/iconDragonAlt1.png"
     document.getElementById("dragonTitle").innerHTML = "<a style='font-size: 14px'>You have a</a><br>Purple robot dragon"
     document.getElementById("dragonInfo").innerHTML = "Your dragon has a strange affinity for large numbers. An easter egg for a certain someone!"
     document.getElementsByClassName("box")[3].style.backgroundColor = "#a9c"
   }
   else if (!dragonClicked) {
-		dragonClicked = true
-    $.getJSON('https://api.db-ip.com/v2/free/self', function(data) {
-      info = JSON.stringify(data, null, 2)
+		//dragonClicked = true
+    await fetch('https://api.db-ip.com/v2/free/self', function(data) {
+      const info = JSON.stringify(data, null, 2)
       if (info) alert("Hmm? For what reason did you click on me? You want to battle me? I'm sorry young one, but I don't think that's a wise idea.\n\nDo you feel safe, out there in " + JSON.parse(info)["city"] + "?")
     });
   }

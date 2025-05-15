@@ -52,7 +52,7 @@ function showAchievement(x,y) {
   achievementBox.style.borderTop = "4px solid " + achievementColours[y] //Colours the top of each achievement based on the resource
   achievementBox.id = thisId;
   document.getElementById("achievementsDiv").appendChild(achievementBox.cloneNode(true));
-  
+
   if (game.unlockedAchievements[y] > x) {
     document.getElementById(thisId).classList.add("achievementUnlocked");
     //if (game.unlockedAchievements[y] - 12 > x && achievementStarRequirements[y][x]) {
@@ -74,7 +74,7 @@ function showAchievements(x) {
     document.getElementById("achievementsDiv").innerHTML += "<br>"
     for (i=0;i<visibleAchievements[j];i++) showAchievement(i,j)
   }
-  
+
   /*
   switch (x) {
     case 0:
@@ -183,13 +183,17 @@ function showAchievementInfo(x,y) {
     document.getElementById("achievementInfo").innerHTML = newHtml;
     return;
   }
-  newHtml += "<p style='font-size: 22px; line-height: 22px; margin: 4px'>" + achievementNames[x][y] + "</p>" 
-  newHtml += "<p>Obtain " + format(achievementRequirements[x][y], 0) + " " + achievementResources[x].name + "."; //example: Obtain 1e10 fire
+  let thisId = `ach${x}x${y}`;
+  newHtml += `<p style='font-size: 22px; line-height: 22px; margin: 4px'>${achievementNames[x][y]}</p>`
+  newHtml += `<p>Obtain ${format(achievementRequirements[x][y], 0)} ${achievementResources[x].name}.`; //example: Obtain 1e10 fire
   //if (game.unlockedAchievements[x] >= 12 && achievementStarRequirements[x][y]) newHtml += "<span style='color: #FFD700; text-shadow: 1px 1px #860'> Star requirement: Obtain " + format(achievementStarRequirements[x][y], 0) + " " + achievementResources[x].name + ".</span>"; //example: Star requirement: Obtain e1e10 fire
   newHtml += "</p>";
-  let thisId = "ach" + x + "x" + y;
+  const unlockTiming = getCurrentAchievementTimings()[thisId];
+  if (unlockTiming) {
+    newHtml += `<p>Unlocked at ${unlockTiming.unlockDateTime} (${unlockTiming.unlockTimeElapsed})</p>`
+  }
   if (Object.keys(achievementRewards).indexOf(thisId) > -1) { //check whether the acheivementRewards object has an entry for this id
-    newHtml += "<p style='color: #8ff'>Reward: " + achievementRewards[thisId] + "</p>" 
+    newHtml += "<p style='color: #8ff'>Reward: " + achievementRewards[thisId] + "</p>"
   }
   /*
   switch (thisId) {
@@ -234,20 +238,24 @@ function checkAchievements() {
       */
     } else {
       //fewer than 12 achievements, not checking for stars yet
-      let loops = 0; //tested without this variable, but I added it in afterwards to be 100% sure we don't get stuck in an infinite loop.
+      let loops = 0; //tested without this variable, but I added it in afterward to be 100% sure we don't get stuck in an infinite loop.
+      const achievementId = `ach${i}x${game.unlockedAchievements[i]}`; //e.g. ach0x0
       // I'm really paranoid about while loops
-      if (!document.getElementById("ach" + i + "x" + game.unlockedAchievements[i])) continue; //skip this resource if the next achievement isn't yet loaded into the DOM
+      if (!document.getElementById(achievementId)) continue; //skip this resource if the next achievement isn't yet loaded into the DOM
+      const achievementTimings = {};
       while (loops < 10 && achievementRequirements[i][game.unlockedAchievements[i]] !== undefined && new Decimal(game[achievementResources[i].internalName]).gte(achievementRequirements[i][game.unlockedAchievements[i]])) {
-        if (!document.getElementById("ach" + i + "x" + game.unlockedAchievements[i])) break; //break this loop if next achievement isn't yet loaded into the DOM
+        if (!document.getElementById(achievementId)) break; //break this loop if next achievement isn't yet loaded into the DOM
         game.unlockedAchievements[i] += 1;
         achievementBoxOpen(i,game.unlockedAchievements[i] - 1)
-        document.getElementById("ach" + i + "x" + (game.unlockedAchievements[i] - 1)).classList.add("achievementUnlocked");
+        document.getElementById(achievementId).classList.add("achievementUnlocked");
+        console.log("Saving achievement", achievementId);
+        achievementTimings[achievementId] = getAchievementTimingToSave();
         processAchievementRewards();
         loops++
       }
+      if (game.gameId) saveBulkAchievementTimings(achievementTimings);
     }
   }
-
 }
 
 function processAchievementRewards() {
@@ -264,7 +272,7 @@ function processAchievementRewards() {
   //cyan sigil rewards
   if (game.unlockedAchievements[6] > 1) document.getElementById("dragonFeedButton").innerHTML = '<b>Feed your dragon</b><br>Turns some of your score and magifolds into dragon food<br>Next feed requires <a id="dragonFeedCost">' + format(game.dragonFeedCost, 0) + '</a> magifolds'
   if (game.unlockedAchievements[6] > 2) document.getElementById("fireAutoMaxAllButton").style.display = "block";
-  
+
   //blue sigil rewards
   if (game.unlockedAchievements[7] > 0) document.getElementById("dragonFeedButton").innerHTML = '<b>Feed your dragon</b><br>Next feed requires <a id="dragonFeedCost">' + format(game.dragonFeedCost, 0) + '</a> magifolds'
   //violet sigil rewards
@@ -320,7 +328,7 @@ function achievementBoxOpen(x,y) {
   document.getElementById("achievementBoxInfo").innerHTML = "<b>" + achievementNames[x][y] + "</b> - Obtain " + format(achievementRequirements[x][y], 0) + " " + achievementResources[x].name + "."
   let thisId = "ach" + x + "x" + y;
   if (Object.keys(achievementRewards).indexOf(thisId) > -1) { //check whether the acheivementRewards object has an entry for this id
-    document.getElementById("achievementBoxInfo").innerHTML += "<br><br><span style='color: #088; font-size: 16px; font-weight: bold; margin-right: 2px'>Reward gained: " + achievementRewards[thisId] + "</span>" 
+    document.getElementById("achievementBoxInfo").innerHTML += "<br><br><span style='color: #088; font-size: 16px; font-weight: bold; margin-right: 2px'>Reward gained: " + achievementRewards[thisId] + "</span>"
   }
   setTimeout(achievementBoxClose, 6000)
 }
@@ -352,4 +360,49 @@ async function achievementTabFlash() {
   }
   game.achievementFlashActive = false;
   achieveTab.style.background = "";
+}
+
+// Achievement timings
+function getAchievementTimings() {
+  return JSON.parse(localStorage.getItem("achievementTimings") || '{}');
+}
+
+function getCurrentAchievementTimings(achievementTimings) {
+  return (achievementTimings || getAchievementTimings())[game.gameId] || {};
+}
+
+function getAchievementTimingToSave() {
+  const currentDate = new Date();
+  const currentDateString = currentDate.toISOString().slice(0, 10); // Get the current date in YYYY-MM-DD format
+  const currentTimeString = currentDate.toLocaleTimeString(); // Get the current time in HH:MM:SS format
+
+  return {
+    unlockDateTime: `${currentDateString} ${currentTimeString}`,
+    unlockTimeElapsed: new Date(game.timePlayed * 1000).toISOString().slice(11, 19)
+  };
+}
+
+function saveAchievementTimings(achievementId) {
+  const achievementTimings = getAchievementTimings();
+
+  const currentAchievementTimings = getCurrentAchievementTimings(achievementTimings);
+
+  currentAchievementTimings[achievementId] = getAchievementTimingToSave();
+
+  achievementTimings[game.gameId] = currentAchievementTimings;
+
+  localStorage.setItem("achievementTimings", JSON.stringify(achievementTimings));
+}
+
+function saveBulkAchievementTimings(timings) {
+  const achievementTimings = getAchievementTimings();
+  const currentAchievementTimings = getCurrentAchievementTimings(achievementTimings);
+
+  Object.entries(timings).forEach(([id, timing]) => {
+    currentAchievementTimings[id] = timing;
+  })
+
+  achievementTimings[game.gameId] = currentAchievementTimings;
+
+  localStorage.setItem("achievementTimings", JSON.stringify(achievementTimings));
 }

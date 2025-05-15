@@ -29,7 +29,7 @@ function magicReset(triggerLayer = "magic") {
   else {game.miners = new Decimal(0)}
   game.minerCost = new Decimal(20)
   document.getElementById("minerCost").innerHTML = "20"
-  
+
   game.fire = new Decimal(0)
   game.fireUpgrade1Bought = new Decimal(0)
   game.fireUpgrade1Cost = new Decimal(50)
@@ -83,7 +83,7 @@ function buyMagicUpgrade(x) {
     game.magicUpgradesBought[x-1] = true
     document.getElementsByClassName("magicUpgrade")[x-1].disabled = true
     if (x==8) document.getElementsByClassName("platinumUpgrade")[6].style.display = "block"
-    if (x==11 && game.platinumUpgradesBought[6] == 10) document.getElementsByClassName("platinumUpgrade")[6].disabled = false 
+    if (x==11 && game.platinumUpgradesBought[6] == 10) document.getElementsByClassName("platinumUpgrade")[6].disabled = false
     if (x==12) {
       document.getElementsByClassName("box")[8].style.display = "block"
       document.getElementsByClassName("resourceRow")[5].style.display = "block"
@@ -134,7 +134,6 @@ function buyDarkMagicUpgrade(x) {
     document.getElementsByClassName("darkMagicUpgrade")[x-1].disabled = true
     if (x==4) document.getElementById("magifoldEffect").textContent = format(game.magifolds.pow(8), 2)
     if (x==8) {
-      document.getElementById("horrorTabButton").style.display = "block"
       document.getElementsByClassName("box")[11].style.display = "block"
       document.getElementsByClassName("resourceRow")[7].style.display = "block"
       document.getElementsByClassName("confirmationToggle")[1].style.display = "inline-block"
@@ -148,7 +147,7 @@ function buyDarkMagicUpgrade(x) {
       else {document.getElementsByClassName("cyanSigilUpgrade")[3].disabled = false}
       addUnlock() //sets unlock to 10
     }
-  } 
+  }
 }
 
 function darkMagicUpgradeBuyMax() {
@@ -205,7 +204,7 @@ function buyVoidMagicUpgrade(x) {
 			document.getElementById("unlockEssencesButton").style.display = "block"
       addUnlock() //sets unlock to 32
     }
-  } 
+  }
 }
 
 function getMagicGain() {
