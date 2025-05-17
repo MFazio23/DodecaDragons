@@ -237,18 +237,15 @@ const autoRunMagicChallenges = async () => {
   clearMagicChallenges();
   console.log("Stating auto challenge");
 
-  activateMagicChallenge(4);
-  await runWithPause(enterExitMagicChallenges, challengeTime);
-  enterExitMagicChallenges();
-  activateMagicChallenge(3);
-  await runWithPause(enterExitMagicChallenges, challengeTime);
-  enterExitMagicChallenges();
-  activateMagicChallenge(1);
-  await runWithPause(enterExitMagicChallenges, challengeTime);
-  enterExitMagicChallenges();
-  activateMagicChallenge(2);
-  await runWithPause(enterExitMagicChallenges, challengeTime);
-  enterExitMagicChallenges();
+  // If we have enough magic, change the order.
+  const challengeOrder = game.magic.gte(8.5e15) ? [4, 3, 1, 2] : [1, 2, 4, 3];
+
+  for (const challenge of challengeOrder) {
+    activateMagicChallenge(challenge);
+    await runWithPause(enterExitMagicChallenges, challengeTime);
+    enterExitMagicChallenges();
+  }
+
   dragonFeed();
   clearMagicChallenges();
 
@@ -296,6 +293,9 @@ const autoResetSigils = (sigilType) => {
     if (sigil.toGet.sign > 0) {
       sigilCheck(sigil.id);
       lastSigilReset = Date.now();
+      if (game.unlockedAchievements[7] < 2) {
+        setTimeout(autoRunMagicChallenges, 500);
+      }
     }
   }
 };

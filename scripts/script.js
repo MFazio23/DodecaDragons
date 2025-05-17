@@ -446,8 +446,8 @@ reset()
 function hardReset() {
   if (confirm("Are you sure you want to reset? You will lose everything!")) {
     logGameEnd();
-    reset()
-    save()
+    reset();
+    save();
     location.reload()
   }
 }
@@ -514,6 +514,7 @@ function load() {
     game.gameId = crypto.randomUUID();
     logGameStart();
   }
+  updateMilestonesBox();
 }
 
 //load()
@@ -578,7 +579,7 @@ function loadGame(loadgame) {
   game.achievementFlashActive = false; // make sure flash isn't still set to true through reload
   //game.currentTab = 1; // reset current tab to 1 to ensure achievement flash properly triggers
   //TODO: back to tab 1, remove display
-  toggleCornerButtonBoxVisibility(5);
+  toggleCornerButtonBoxVisibility(6);
 
   if (game.dragonName !== undefined) document.getElementById("dragonNameBox").value = game.dragonName
   if (game.fireAutoMaxAll) {document.getElementById("fireAutoMaxAllButton").textContent = "Auto max all: On"} //Toggle the fire auto max all button

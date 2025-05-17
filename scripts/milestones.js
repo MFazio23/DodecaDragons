@@ -155,6 +155,14 @@ const milestones = [
   },
 ]
 
+const milestonesBox = document.getElementById("milestones-box");
+const milestonesBody = milestonesBox.querySelector("div.window-body");
+
+function updateMilestonesBox(milestones) {
+  milestones = milestones || getCurrentMilestones();
+  milestonesBody.innerHTML = `<pre><code>${JSON.stringify(milestones, null, 2)}</code></pre>`;
+}
+
 function getMilestones() {
   const allMilestonesString = localStorage.getItem("milestones") || '{}';
 
@@ -196,4 +204,6 @@ function logMilestoneItem(milestoneId) {
   milestones[game.gameId] = currentMilestones;
 
   localStorage.setItem("milestones", JSON.stringify(milestones));
+
+  updateMilestonesBox(milestones);
 }
