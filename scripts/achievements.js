@@ -378,7 +378,7 @@ function getAchievementTimingToSave() {
 
   return {
     unlockDateTime: `${currentDateString} ${currentTimeString}`,
-    unlockTimeElapsed: new Date(game.timePlayed * 1000).toISOString().slice(11, 19)
+    unlockTimeElapsed: game.timePlayed
   };
 }
 

@@ -28,6 +28,7 @@ const milestones = [
   {
     id: "moreMagicUpgrades",
     text: "More magic upgrades",
+    excluded: true,
   },
   {
     id: "uranium",
@@ -36,6 +37,7 @@ const milestones = [
   {
     id: "morePlatinumAndUranium",
     text: "More platinum and uranium",
+    excluded: true,
   },
   {
     id: "darkMagicUpgrades",
@@ -159,8 +161,23 @@ const milestonesBox = document.getElementById("milestones-box");
 const milestonesBody = milestonesBox.querySelector("div.window-body");
 
 function updateMilestonesBox(milestones) {
-  milestones = milestones || getCurrentMilestones();
-  milestonesBody.innerHTML = `<pre><code>${JSON.stringify(milestones, null, 2)}</code></pre>`;
+  milestones = milestones || getMilestones();
+
+  const currentMilestones = getCurrentMilestones(milestones);
+
+  Object.entries(currentMilestones).forEach(([id, timings]) => {
+    const paragraphElement = document.getElementById(`${id}Milestone`);
+
+    if (paragraphElement) {
+      paragraphElement.style.display = "block";
+    }
+
+    const textElement = document.getElementById(`${id}MilestoneText`);
+
+    if (textElement) {
+      textElement.innerText = timings.timeElapsed;
+    }
+  })
 }
 
 function getMilestones() {
@@ -198,7 +215,7 @@ function logMilestoneItem(milestoneId) {
 
   currentMilestones[milestoneId] = {
     dateTime: `${currentDateString} ${currentTimeString}`,
-    timeElapsed: new Date(game.timePlayed * 1000).toISOString().slice(11, 19)
+    timeElapsed: game.timePlayed
   }
 
   milestones[game.gameId] = currentMilestones;
