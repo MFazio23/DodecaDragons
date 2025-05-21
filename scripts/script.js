@@ -1,7 +1,6 @@
 //TO DO LIST
 //Check that the code at the end of the reset function is updated
 //Remove known bugs and to do list from changelog
-
 //Stolen code to check if the user is on a mobile device
 window.mobileCheck = function() {
   let check = false;

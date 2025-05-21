@@ -778,4 +778,7 @@ TODO:
 - Add automation for sigils before it's available in-game
 - Automation for auto-collecting holy polyhedrons doesn't work for low amounts
     - The layer check isn't quite right, need to adjust.
+- Add a way to automatically take actions after buying a particular upgrade.
+    - i.e. once you buy something that boosts challenge score gain, run another auto-challenge.
+- Auto-buy next level of sigils
 */

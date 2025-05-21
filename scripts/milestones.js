@@ -1,4 +1,3 @@
-
 const milestones = [
   {
     id: "start",
@@ -160,6 +159,15 @@ const milestones = [
 const milestonesBox = document.getElementById("milestones-box");
 const milestonesBody = milestonesBox.querySelector("div.window-body");
 
+function getElapsedTime(timeElapsed) {
+  const elapsedTime = timeElapsed; // Convert milliseconds to seconds
+  const hours = Math.floor(elapsedTime / 3600);
+  const minutes = Math.floor((elapsedTime % 3600) / 60);
+  const seconds = Math.floor(elapsedTime % 60);
+
+  return `${hours < 10 ? `0${hours}` : hours}:${minutes < 10 ? `0${minutes}` : minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
+}
+
 function updateMilestonesBox(milestones) {
   milestones = milestones || getMilestones();
 
@@ -175,7 +183,7 @@ function updateMilestonesBox(milestones) {
     const textElement = document.getElementById(`${id}MilestoneText`);
 
     if (textElement) {
-      textElement.innerText = timings.timeElapsed;
+      textElement.innerText = getElapsedTime(timings.timeElapsed);
     }
   })
 }
