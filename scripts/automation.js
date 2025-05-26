@@ -497,7 +497,7 @@ addIntervalRow("alchemy-row", [
 
 addIntervalButton({
   intervalName: "auto-upgrade dragon",
-  time: 100,
+  time: 1000,
   action: () => handleAutoUpgradeDragon(),
   startEnabled: true,
 });
@@ -781,4 +781,6 @@ TODO:
 - Add a way to automatically take actions after buying a particular upgrade.
     - i.e. once you buy something that boosts challenge score gain, run another auto-challenge.
 - Auto-buy next level of sigils
+- Auto-collect sigils when needed
+  - Grab the ones from the current challenge, and if the value's low.
 */

@@ -76,7 +76,7 @@ const dragonLevels = [
 
 function upgradeDragon(id) {
   const dragonLevel = dragonLevels.find(level => level.id === id)
-  if (game.gold.gte(dragonLevel.gold)) {
+  if (dragonLevel && game.gold.gte(dragonLevel.gold)) {
     game.gold = game.gold.sub(dragonLevel.gold)
     document.getElementsByClassName("upgradeDragonButton")[id - 1].style.display = "none"
     if (id < dragonLevels.length) {
