@@ -193,7 +193,7 @@ const handleAlchemyUpgrades = () => {
 };
 
 const handleAutoUpgradeDragon = () => {
-  [...Array(10 - game.dragonStage).keys()].forEach((i) => {
+  [...Array(11 - game.dragonStage).keys()].forEach((i) => {
     upgradeDragon(i + game.dragonStage);
   });
 };
@@ -783,4 +783,6 @@ TODO:
 - Auto-buy next level of sigils
 - Auto-collect sigils when needed
   - Grab the ones from the current challenge, and if the value's low.
+- Skip Hell/blood step when it's collected automatically
+- Hide automation button when ending the game
 */
