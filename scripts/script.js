@@ -2514,9 +2514,9 @@ function bigFinish() {
 		panTo(window.innerWidth/2,window.innerHeight/2)
 		document.getElementById("navArrows").style.display = "none"
 		document.getElementById("home").style.display = "none"
-		for (i=0;i<5;i++) document.getElementsByClassName("tabButton")[i].style.display = "none"
-		"none"
-		toggleCornerButtonBoxVisibility(0);
+    const tabButtons = [...document.getElementsByClassName("tabButton")];
+    tabButtons.forEach(tabButton => tabButton.style.display = 'none')
+    toggleCornerButtonBoxVisibility(0);
     document.getElementById("dragonImg").src = "img/iconDragon12.png"
     document.getElementById("dragonTitle").innerHTML = "<a style='font-size: 14px'>You have a</a><br>DodecaDragon"
     document.getElementById("dragonInfo").innerHTML = ""
